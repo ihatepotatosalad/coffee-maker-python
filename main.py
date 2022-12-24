@@ -55,6 +55,8 @@ def make_coffee():
             user_choice = input('What would you like? (espresso/latte/cappuccino): ')
             if user_choice == 'report':
                 call_report()
+            elif user_choice == 'off':
+                exit()
             
             
                 
@@ -70,14 +72,14 @@ def make_coffee():
                 purchase_compelete=False
         elif not machine_water >= MENU[user_choice]["ingredients"]["water"]:
             purchase_compelete=False
-            print('Add more water')
+            print('Add more water, money refended')
         elif not machine_coffee >= MENU[user_choice]["ingredients"]["coffee"]:
             purchase_compelete=False
-            print('Add more coffee')
+            print('Add more coffee, money refended')
         elif 'milk' in MENU[user_choice]["ingredients"]:
             if not machine_milk >= MENU[user_choice]["ingredients"]["milk"]:
                 purchase_compelete=False
-                print('Add more milk')
+                print('Add more milk, money refended')
         if purchase_compelete:
             print('purchase complete')
             change= round(total_coins - MENU[user_choice]['cost'],2)
